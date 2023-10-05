@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .clicked {
+            background: rgba(39, 174, 96, 1.0);
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #change {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+            border-radius: 40%;
+            border: 5px solid white;
+            background-color: black;
+            color: white;
+            height: 80px;
+            width: 80px;
+            align-content: center;
+            justify-content: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+
+<body id="body">
+    <div class="container">
+        <button class="btn btn-primary" id="change">Tu suce des penis!</button>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            setColor();
+            function setColor() {
+                let colors = ["#e74c3c", "#27ae60"];
+                let color = Math.floor(Math.random() * (colors.length));
+
+                $('body').toggleClass('clicked');
+                setTimeout(function () {
+                    $('.clicked').css("background-color", colors[color]);
+                    $('body').removeClass('clicked');
+                }, 200)
+            }
+
+            $('#change').on("click", function () {
+                setColor();
+            });
+        });
+    </script>
+</body>
+
+</html>
